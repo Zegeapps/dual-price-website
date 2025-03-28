@@ -12,44 +12,58 @@ const Navbar = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
+    // Function to handle smooth scrolling
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setIsMenuOpen(false); // Close mobile menu if open
+        }
+    };
+
     return (
         <div className="relative">
             <header className="max-w-7xl mx-auto px-4 py-2">
                 <div className="max-w-7xl mx-auto">
                     <nav className="flex items-center justify-between bg-white rounded-lg px-3 py-2 border">
-                        {/* Logo */}
-                            <Link href="/" className="hidden sm:block">
-                        <div className="flex items-center space-x-2">
-                            <Image
-                                src="/logo-navbar.svg"
-                                alt="Logo"
-                                width={40}
-                                height={40}
-                                priority
-                            />
-                              <h3 className='text-lg font-semibold text-neutral-900'> VAT: Dual Pricing PRO</h3> 
-                        </div>
-                            </Link>
+                        {/* Logo - Visible on all screen sizes */}
+                        <Link href="/" className="block">
+                            <div className="flex items-center space-x-2">
+                                <Image
+                                    src="/logo-navbar.svg"
+                                    alt="Logo"
+                                    width={40}
+                                    height={40}
+                                    priority
+                                />
+                                <h3 className='text-lg font-semibold text-neutral-900 hidden sm:block'> VAT: Dual Pricing PRO</h3> 
+                            </div>
+                        </Link>
 
                         {/* Desktop Navigation */}
                         <div className="hidden md:flex items-center space-x-8">
-                            <Link href="/products" className="text-neutral-700 font-medium hover:text-orange-500">
+                            {/* Features link - scroll to features section */}
+                            <button 
+                                onClick={() => scrollToSection('features')}
+                                className="text-neutral-700 font-medium hover:text-orange-500 bg-transparent border-0 cursor-pointer"
+                            >
                                 Features
-                            </Link>
-                            <Link href="/developers" className="text-neutral-700 font-medium hover:text-orange-500">
+                            </button>
+                            
+                            <button 
+                                onClick={() => scrollToSection('pricing')}
+                                className="text-neutral-700 font-medium hover:text-orange-500 bg-transparent border-0 cursor-pointer"
+                            >
                                 Pricing
-                            </Link>
-                            <Link href="/pricing" className="text-neutral-700  font-medium hover:text-orange-500">
-                                Blogs
-                            </Link>
-                            <Link
-                                href="/contact"
-                                className="px-4 py-2 bg-neutral-800 text-white rounded-md hover:bg-neutral-600 transition"
+                            </button>
+                            
+                            <button
+                                onClick={() => scrollToSection('footer')}
+                                className="px-4 py-2 bg-neutral-800 text-white rounded-md hover:bg-neutral-600 transition cursor-pointer"
                             >
                                 Contact us
-                            </Link>
+                            </button>
                         </div>
-
 
                         {/* Mobile Menu Button */}
                         <div className="md:hidden">
@@ -70,57 +84,27 @@ const Navbar = () => {
                     {isMenuOpen && (
                         <div className="md:hidden bg-white mt-2 py-2 px-4 rounded-lg shadow-lg">
                             <div className="flex flex-col space-y-4 pb-4">
-                                <Link
-                                    href="/products"
-                                    className="text-gray-700 hover:text-gray-900 py-2"
-                                    onClick={() => setIsMenuOpen(false)}
+                                <button
+                                    onClick={() => scrollToSection('features')}
+                                    className="text-gray-700 hover:text-gray-900 py-2 text-left bg-transparent border-0 cursor-pointer"
                                 >
-                                    Products
-                                </Link>
-                                <Link
-                                    href="/use-cases"
-                                    className="text-gray-700 hover:text-gray-900 py-2"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Use cases
-                                </Link>
-                                <Link
-                                    href="/developers"
-                                    className="text-gray-700 hover:text-gray-900 py-2"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Developers
-                                </Link>
-                                <Link
-                                    href="/pricing"
-                                    className="text-gray-700 hover:text-gray-900 py-2"
-                                    onClick={() => setIsMenuOpen(false)}
+                                    Features
+                                </button>
+                                
+                                <button
+                                    onClick={() => scrollToSection('pricing')}
+                                    className="text-gray-700 hover:text-gray-900 py-2 text-left bg-transparent border-0 cursor-pointer"
                                 >
                                     Pricing
-                                </Link>
-                                <Link
-                                    href="/company"
-                                    className="text-gray-700 hover:text-gray-900 py-2"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Company
-                                </Link>
+                                </button>
                             </div>
                             <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
-                                <Link
-                                    href="/contact"
-                                    className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition text-center"
-                                    onClick={() => setIsMenuOpen(false)}
+                                <button
+                                    onClick={() => scrollToSection('footer')}
+                                    className="px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition text-center cursor-pointer"
                                 >
-                                    Contact sales
-                                </Link>
-                                <Link
-                                    href="/signin"
-                                    className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition text-center"
-                                    onClick={() => setIsMenuOpen(false)}
-                                >
-                                    Sign in
-                                </Link>
+                                    Contact us
+                                </button>
                             </div>
                         </div>
                     )}
