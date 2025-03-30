@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
         <div className="md:w-2/5 flex justify-center">
           <Image
-            src="https://img.freepik.com/free-photo/arrangement-with-white-cream-container_23-2148549120.jpg?t=st=1743312339~exp=1743315939~hmac=4f5ef4b885a59f93f1148521516651b8eddd1c8d1aa207449faa102da1e80191&w=740"
+            src="https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/hero-image.svg?token=BO6JCJEGODVUWTFHJM65PR3H5DNAA"
             alt="Hero image description"
             width={360}
             height={300}

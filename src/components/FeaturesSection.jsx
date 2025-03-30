@@ -30,7 +30,7 @@ const featuresData = [
             
             <p>No more customer confusion about whether taxes are included or not. With VAT: Dual Pricing PRO, you can satisfy the expectations of both B2B and B2C customers with a single, elegant solution.</p>
         `,
-    image: "/display-prices.svg",
+    image: "https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/display-prices.svg?token=BO6JCJHSCVBYKVYLIMM7R4TH5DNJS",
     altText: "VAT Inclusive & Exclusive Prices Feature",
     background: "bg-orange-50",
     linkColor: "text-orange-600 hover:text-orange-700",
@@ -60,7 +60,7 @@ const featuresData = [
             
             <p>With our intuitive interface, you can set up complex tax rules without any coding knowledge. Our tax engine handles all the complexity behind the scenes, ensuring accurate tax calculations for every customer, every time.</p>
         `,
-    image: "/tax-rules.svg",
+    image: "https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/tax-rules.svg?token=BO6JCJFHYLDB53SFSLMTLK3H5DNLI",
     altText: "Advanced Tax Rules Feature",
     background: "bg-purple-50",
     linkColor: "text-purple-600 hover:text-purple-700",
@@ -89,7 +89,7 @@ const featuresData = [
             
             <p>With our translation features, you can ensure that your tax information is presented correctly and naturally to every customer, regardless of their location or language preferences.</p>
         `,
-    image: "/translation.svg",
+    image: "https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/translation.svg?token=BO6JCJC4EMCS4ELKKTAVIKDH5DNM6",
     altText: "Translate Tax Labels Feature",
     background: "bg-blue-50",
     linkColor: "text-blue-600 hover:text-blue-700",
@@ -119,7 +119,7 @@ const featuresData = [
             
             <p>With our setup support, you can start enjoying the benefits of VAT: Dual Pricing PRO without having to worry about the technical details of implementation.</p>
         `,
-    image: "/support.svg",
+    image: "https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/support.svg?token=BO6JCJBUGQEEOZSQH2BYYETH5DNOC",
     altText: "Setup Support Feature",
     background: "bg-amber-50",
     linkColor: "text-orange-600 hover:text-orange-700",
