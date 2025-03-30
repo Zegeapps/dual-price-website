@@ -5,9 +5,6 @@ const nextConfig = {
   assetPrefix: '/dual-price-website/',
   images: {
     unoptimized: true,
-    unoptimized: true,
-    loader: 'custom',
-    loaderFile: './utils/imageLoader.js',
   }
 }
 
