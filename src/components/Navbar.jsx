@@ -31,8 +31,7 @@ const Navbar = () => {
             <Link href="/" className="block">
               <div className="flex items-center space-x-2">
                 <Image
-                  loader={imageLoader}
-                  src="/logo-navbar.svg"
+                  src="zegeapps.github.io/dual-price-website/logo-navbar.svg"
                   alt="Logo"
                   width={40}
                   height={40}
