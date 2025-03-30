@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
         <div className="md:w-2/5 flex justify-center">
           <Image
-            src="/dual-price-website/hero-image.svg"
+            src="https://img.freepik.com/free-photo/arrangement-with-white-cream-container_23-2148549120.jpg?t=st=1743312339~exp=1743315939~hmac=4f5ef4b885a59f93f1148521516651b8eddd1c8d1aa207449faa102da1e80191&w=740"
             alt="Hero image description"
             width={360}
             height={300}
