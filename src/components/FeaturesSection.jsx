@@ -30,7 +30,7 @@ const featuresData = [
             
             <p>No more customer confusion about whether taxes are included or not. With VAT: Dual Pricing PRO, you can satisfy the expectations of both B2B and B2C customers with a single, elegant solution.</p>
         `,
-    image: "https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/display-prices.svg?token=BO6JCJDAYLXQCK7URRQB7ATH5DPAU",
+    image: "https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/display-prices.svg",
     altText: "VAT Inclusive & Exclusive Prices Feature",
     background: "bg-orange-50",
     linkColor: "text-orange-600 hover:text-orange-700",
