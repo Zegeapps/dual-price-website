@@ -31,7 +31,7 @@ const Navbar = () => {
             <Link href="/" className="block">
               <div className="flex items-center space-x-2">
                 <Image
-                  src="https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/logo-navbar.svg?token=BO6JCJHSMZHRUMMVPARAOO3H5DNIG"
+                  src="https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/logo-navbar.svg?token=BO6JCJBCYZGX3ESO33SYKT3H5DOBE"
                   alt="Logo"
                   width={40}
                   height={40}
