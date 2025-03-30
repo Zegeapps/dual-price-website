@@ -29,7 +29,7 @@ export default function Hero() {
         </div>
         <div className="md:w-2/5 flex justify-center">
           <Image
-            src="/hero-image.svg"
+            src="/dual-price-website/hero-image.svg"
             alt="Hero image description"
             width={360}
             height={300}
