@@ -13,7 +13,7 @@ const HERO_IMAGE = {
 // Hero component - Main landing section for the application
 export default function Hero() {
   return (
-    <section className="border-b border-neutral-300">
+    <section >
       <Navbar />
 
       <div className="max-w-7xl mx-auto px-4 py-14 md:py-4">
