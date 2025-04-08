@@ -1,42 +1,62 @@
 import Image from "next/image";
-import Link from "next/link";
 import Navbar from "./Navbar";
+import GetAppPrimaryButton from "./common/GetAppPrimaryButton";
 
+// hero image details
+const HERO_IMAGE = {
+  src: "https://raw.githubusercontent.com/Zegeapps/zege-assets/c2ef49133201e8337580f126383ed3f3a7dd1729/Dual%20Price%20Website%20assets/hero.svg",
+  alt: "Dual pricing display visualization",
+  width: 440,
+  height: 300,
+};
+
+// Hero component - Main landing section for the application
 export default function Hero() {
   return (
-    <div className="bg-orange-50 border-b border-neutral-300">
+    <section className="border-b border-neutral-300">
       <Navbar />
-      <div className="max-w-7xl mx-auto px-4 pt-10 flex flex-col md:flex-row items-center gap-10 md:justify-between">
-        <div className="md:w-3/5 mb-8 md:mb-0 md:pr-8">
-          <h1 className="text-5xl lg:text-6xl hero-heading font-medium mb-4 tracking-wide leading-14 lg:leading-16 text-center md:text-left">
-            Transparent{" "}
-            <span className="text-orange-500 font-semibold"> VAT Pricing </span>{" "}
-            Missing Strategy for Global Sales
-          </h1>
-          <p className=" text-gray-600  text-lg text-center md:text-left">
-            Instant dual pricing display throughout your store eliminates the{" "}
-            <span className="font-semibold text-neutral-900">#1</span> reason
-            international customers abandon carts.{" "}
-          </p>
-          <div className="flex justify-center md:justify-start md:mb-6">
-            <Link
-              href="/contact"
-              className="bg-orange-600 text-white text-lg font-medium px-6 py-3 mt-10  rounded hover:bg-orange-500 transition"
-            >
-              Get Dual Price App
-            </Link>
+
+      <div className="max-w-7xl mx-auto px-4 py-14 md:py-4">
+        <div className="flex flex-col md:flex-row items-center gap-10 md:justify-between">
+          {/* Content Section */}
+          <div className="md:w-3/5 flex flex-col gap-6">
+            <header className="text-center md:text-left">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium mb-4 tracking-wide leading-tight">
+                Transparent
+                <span className="text-orange-600 font-semibold">
+                  {" "}
+                  VAT Pricing{" "}
+                </span>
+              </h1>
+              <p className="text-2xl sm:text-3xl font-medium">
+                Missing Strategy for Global Sales
+              </p>
+            </header>
+
+            <p className="text-gray-600 text-lg text-center md:text-left">
+              Instant dual pricing display throughout your store eliminates the{" "}
+              <span className="font-semibold text-neutral-900">#1</span> reason
+              international customers abandon carts.
+            </p>
+
+            <div className="flex justify-center md:justify-start">
+              <GetAppPrimaryButton bgColor="bg-orange-600" />
+            </div>
+          </div>
+
+          {/* Image Section */}
+          <div className="md:w-2/5 flex justify-center">
+            <Image
+              src={HERO_IMAGE.src}
+              alt={HERO_IMAGE.alt}
+              width={HERO_IMAGE.width}
+              height={HERO_IMAGE.height}
+              className="rounded-lg max-w-full h-auto object-contain"
+              priority // Load this image with priority as it's above the fold
+            />
           </div>
         </div>
-        <div className="md:w-2/5 flex justify-center">
-          <Image
-            src="https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/hero-image.svg"
-            alt="Hero image description"
-            width={360}
-            height={300}
-            className="rounded-lg max-w-full h-auto"
-          />
-        </div>
       </div>
-    </div>
+    </section>
   );
 }
