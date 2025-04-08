@@ -1,5 +1,5 @@
-import { FeaturesSection } from "@/components/FeaturesSection";
-import { Footer } from "@/components/Footer";
+import Features from "@/components/Features";
+import Footer from "@/components/Footer";
 import Hero from "@/components/HeroSection";
 import InstallationSteps from "@/components/InstallationSteps";
 import Pricing from "@/components/PricingSection";
@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
 
       <section id="features">
-        <FeaturesSection />
+        <Features/>
       </section>
 
       <InstallationSteps />
