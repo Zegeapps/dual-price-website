@@ -6,21 +6,21 @@ const stepsData = [
     title: "Installation and Activation",
     description:
       "Install the app and select a plan. For just $7, you can display dual prices on your store. Once purchased, enable the app to begin the setup process.",
-    numberColor: "bg-amber-500",
+    numberColor: "bg-[#FB7C33]",
   },
   {
     number: 2,
     title: "Configure Settings",
     description:
       "Navigate to the settings page to customize your configuration. Set your tax percentage, tax labels, display size, colors, and other appearance options to match your store's branding.",
-    numberColor: "bg-sky-500",
+    numberColor: "bg-[#FCC737]",
   },
   {
     number: 3,
     title: "Request Setup Assistance",
     description:
       "Submit a support ticket for assistance. A small configuration in your theme editor is needed to display dual prices. Our team will handle all technical adjustments.",
-    numberColor: "bg-purple-500",
+    numberColor: "bg-indigo-500",
   },
 ];
 
@@ -29,7 +29,7 @@ export default function InstallationSteps() {
     <div className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <div className="inline-block px-4 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4">
+          <div className="inline-block px-4 py-1 bg-blue-100 text-violet-600 rounded-full text-sm font-medium mb-4">
             HOW IT WORKS
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">

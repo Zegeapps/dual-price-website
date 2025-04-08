@@ -57,7 +57,7 @@ export default function Pricing() {
               className={`w-full md:w-96 border border-neutral-200 ${plan.bgColor} rounded-md overflow-hidden relative`}
             >
               {plan.isPopular && (
-                <div className="absolute top-0 right-0 bg-black text-white text-xs font-bold px-3 py-1 rounded-bl">
+                <div className="absolute top-0 right-0 bg-orange-400 text-white text-xs font-bold px-3 py-1 rounded-bl">
                   Most Popular
                 </div>
               )}
@@ -77,11 +77,11 @@ export default function Pricing() {
                       )}
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-bold">{plan.name}</h3>
+                  <h3 className="text-2xl font-medium">{plan.name}</h3>
                 </div>
 
                 <div className="mb-6">
-                  <div className="text-3xl font-bold">
+                  <div className="text-3xl font-semibold">
                     ${plan.amount}{" "}
                     <span className="text-lg font-normal">USD</span>
                   </div>
