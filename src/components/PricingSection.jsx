@@ -1,7 +1,19 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 export default function Pricing() {
+  // Reference to the pricing section
+  const pricingSectionRef = useRef(null);
+  
+  // Check if the section is in view
+  const isInView = useInView(pricingSectionRef, {
+    once: true,
+    amount: 0.2, // Trigger when 20% of the element is visible
+  });
+
   const plans = [
     {
       id: "basicMonthly",
@@ -39,27 +51,46 @@ export default function Pricing() {
   ];
 
   return (
-    <div className="bg-gray-50 border-b border-neutral-100 py-24">
+    <div 
+      className="bg-gray-50 border-b border-neutral-100 py-24"
+      ref={pricingSectionRef}
+    >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 0.8 }}
+        >
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
             Find the right plan for your needs.
           </h2>
           <p className="text-gray-600 mt-2">
             Grow better with the right plan. Try it for 7 days free.
           </p>
-        </div>
+        </motion.div>
 
         <div className="flex flex-col md:flex-row gap-6 justify-center">
-          {plans.map((plan) => (
-            <div
+          {plans.map((plan, planIndex) => (
+            <motion.div
               key={plan.id}
               className={`w-full md:w-96 border border-neutral-200 ${plan.bgColor} rounded-md overflow-hidden relative`}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{
+                duration: 0.6,
+                delay: 0.2 * planIndex,
+              }}
             >
               {plan.isPopular && (
-                <div className="absolute top-0 right-0 bg-orange-400 text-white text-xs font-bold px-3 py-1 rounded-bl">
+                <motion.div 
+                  className="absolute top-0 right-0 bg-orange-400 text-white text-xs font-bold px-3 py-1 rounded-bl z-20"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                  transition={{ delay: 0.4 + (0.2 * planIndex), duration: 0.3 }}
+                >
                   Most Popular
-                </div>
+                </motion.div>
               )}
               <div className="pt-10 px-6 pb-6">
                 <div className="flex items-center mb-4">
@@ -88,32 +119,45 @@ export default function Pricing() {
                   <div className="text-gray-600">7-day free trial</div>
                 </div>
 
-                <Link
-                  href="https://apps.shopify.com"
-                  className="flex items-center justify-center w-full bg-neutral-900 text-white font-medium py-3 px-4 rounded mb-3 hover:bg-neutral-800 transition"
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ delay: 0.4 + (0.2 * planIndex), duration: 0.5 }}
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
                 >
-                  <span>Purchase</span>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="ml-2"
+                  <Link
+                    href="https://apps.shopify.com"
+                    className="flex items-center justify-center w-full bg-neutral-900 text-white font-medium py-3 px-4 rounded mb-3 hover:bg-neutral-800 transition"
                   >
-                    <path
-                      d="M5 12H19M19 12L12 5M19 12L12 19"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </Link>
+                    <span>Install App</span>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="ml-2"
+                    >
+                      <path
+                        d="M5 12H19M19 12L12 5M19 12L12 19"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </Link>
+                </motion.div>
 
-                <div className="mt-6 space-y-3">
-                  {plan.features.map((feature, index) => (
-                    <div key={index} className="flex items-start">
+                <motion.div 
+                  className="mt-6 space-y-3"
+                  initial={{ opacity: 0 }}
+                  animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                  transition={{ delay: 0.5 + (0.2 * planIndex), duration: 0.5 }}
+                >
+                  {plan.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-start">
                       <div
                         className={`flex-shrink-0 w-5 h-5 rounded-full border ${plan.dotBorderColor} flex items-center justify-center mr-3 mt-0.5`}
                       >
@@ -124,9 +168,9 @@ export default function Pricing() {
                       <span className="text-gray-700">{feature}</span>
                     </div>
                   ))}
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,4 +1,7 @@
-import React from "react";
+"use client";
+
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const stepsData = [
   {
@@ -25,22 +28,49 @@ const stepsData = [
 ];
 
 export default function InstallationSteps() {
+  // Create a ref for the section
+  const sectionRef = useRef(null);
+  
+  // Check if the section is in view (with a slight threshold)
+  // only trigger once (once: true) and when 30% of the element is visible
+  const isInView = useInView(sectionRef, { 
+    once: true,  
+    amount: 0.3
+  });
+
   return (
-    <div className="bg-white py-24">
+    <div className="bg-white py-24" ref={sectionRef}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isInView ? 1 : 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
           <div className="inline-block px-4 py-1 bg-blue-100 text-violet-600 rounded-full text-sm font-medium mb-4">
             HOW IT WORKS
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
             3 steps to show dual prices
           </h2>
-        </div>
+        </motion.div>
 
         {/* Desktop View */}
         <div className="hidden md:block">
           {/* Number circles with connecting lines */}
-          <div className="grid grid-cols-3 gap-8 mb-6">
+          <motion.div 
+            className="grid grid-cols-3 gap-8 mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ 
+              opacity: isInView ? 1 : 0, 
+              y: isInView ? 0 : 20 
+            }}
+            transition={{ 
+              duration: 0.8, 
+              ease: "easeOut",
+              delay: 0.2
+            }}
+          >
             {stepsData.map((step, index) => (
               <div
                 key={`circle-${index}`}
@@ -66,10 +96,22 @@ export default function InstallationSteps() {
                 </div>
               </div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Content */}
-          <div className="grid grid-cols-3 gap-8">
+          <motion.div 
+            className="grid grid-cols-3 gap-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ 
+              opacity: isInView ? 1 : 0, 
+              y: isInView ? 0 : 20 
+            }}
+            transition={{ 
+              duration: 0.8, 
+              ease: "easeOut",
+              delay: 0.4
+            }}
+          >
             {stepsData.map((step, index) => (
               <div
                 key={`content-${index}`}
@@ -79,11 +121,23 @@ export default function InstallationSteps() {
                 <p className="text-gray-700">{step.description}</p>
               </div>
             ))}
-          </div>
+          </motion.div>
         </div>
 
         {/* Mobile View */}
-        <div className="md:hidden space-y-8">
+        <motion.div 
+          className="md:hidden space-y-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ 
+            opacity: isInView ? 1 : 0, 
+            y: isInView ? 0 : 20 
+          }}
+          transition={{ 
+            duration: 0.9,
+            ease: "easeOut",
+            delay: 0.3
+          }}
+        >
           {stepsData.map((step, index) => (
             <div key={index} className="flex flex-col items-center text-center">
               <div
@@ -95,7 +149,7 @@ export default function InstallationSteps() {
               <p className="text-gray-700 text-sm">{step.description}</p>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
