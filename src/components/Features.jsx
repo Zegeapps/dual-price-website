@@ -1,5 +1,10 @@
+"use client";
+
 import Image from "next/image";
 import GetAppPrimaryButton from "./common/GetAppPrimaryButton";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 /**
  * Features data structure for better maintainability
@@ -62,73 +67,163 @@ const FEATURES = [
   },
 ];
 
+// Animation variants for the feature sections
+const featureVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { 
+      duration: 0.6,
+      ease: "easeOut"
+    }
+  }
+};
+
+// Animation variants for the images
+const imageVariants = {
+  hidden: (isEven) => ({ 
+    opacity: 0, 
+    x: isEven ? -50 : 50 
+  }),
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+      delay: 0.2
+    }
+  }
+};
+
+// Animation variants for the content
+const contentVariants = {
+  hidden: (isEven) => ({ 
+    opacity: 0, 
+    x: isEven ? 50 : -50 
+  }),
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.7,
+      ease: "easeOut",
+      delay: 0.3
+    }
+  }
+};
+
+// Component for each feature item with animations
+const FeatureItem = ({ feature, index }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+  const isEven = index % 2 === 0;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+      variants={featureVariants}
+      className={`flex flex-col-reverse ${
+        isEven ? "md:flex-row" : "md:flex-row-reverse"
+      } items-start gap-8 md:gap-12`}
+    >
+      {/* Image Container - 60% width on desktop */}
+      <motion.div 
+        className="w-full md:w-6/10"
+        custom={isEven}
+        variants={imageVariants}
+      >
+        <Image
+          src={feature.imageSrc}
+          alt={feature.imageAlt}
+          width={800}
+          height={600}
+          className="w-full h-auto object-contain"
+          priority={index === 0} // Load first image with priority
+        />
+      </motion.div>
+
+      {/* Content Container - 40% width on desktop */}
+      <motion.div
+        className={`w-full md:w-4/10 ${
+          index !== 3 ? "md:mt-[30px]" : ""
+        }`}
+        custom={isEven}
+        variants={contentVariants}
+      >
+        <h3 className="text-2xl md:text-4xl md:leading-[1.3] font-semibold mb-4">
+          {feature.title}
+        </h3>
+        <div className="mb-6 text-gray-600">
+          <p className="mb-3">{feature.description_line1}</p>
+          <p>{feature?.description_line2}</p>
+        </div>
+
+        {feature.hasButton && (
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`px-6 py-2 rounded-md shadow-md hover:shadow-lg transition-colors cursor-pointer 
+              ${feature.buttonColor} ${feature.buttonTextColor} 
+              `}
+          >
+            Show more
+          </motion.button>
+        )}
+      </motion.div>
+    </motion.div>
+  );
+};
+
 /**
  * Features section component
- * Displays alternating left/right layout for features
+ * Displays alternating left/right layout for features with scroll animations
  */
 const Features = () => {
+  const headerRef = useRef(null);
+  const headerInView = useInView(headerRef, { once: true, amount: 0.3 });
+  const ctaRef = useRef(null);
+  const ctaInView = useInView(ctaRef, { once: true, amount: 0.3 });
+
   return (
     <section id="features" className="py-12 md:py-20 bg-neutral-50">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-medium text-center mb-16">
+        <motion.h2 
+          ref={headerRef}
+          initial={{ opacity: 0, y: -20 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-3xl md:text-4xl font-medium text-center mb-16"
+        >
           Our Key Features
-        </h2>
+        </motion.h2>
 
         <div className="space-y-16 md:space-y-24">
           {FEATURES.map((feature, index) => (
-            <div
-              key={feature.id}
-              className={`flex flex-col-reverse ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              } items-start gap-8 md:gap-12`}
-            >
-              {/* Image Container - 60% width on desktop */}
-              <div className="w-full md:w-6/10">
-                <Image
-                  src={feature.imageSrc}
-                  alt={feature.imageAlt}
-                  width={800}
-                  height={600}
-                  className="w-full h-auto object-contain"
-                  priority={index === 0} // Load first image with priority
-                />
-              </div>
-
-              {/* Content Container - 40% width on desktop */}
-              <div
-                className={`w-full md:w-4/10 ${
-                  index !== 3 ? "md:mt-[30px]" : ""
-                }`}
-              >
-                <h3 className="text-2xl md:text-4xl md:leading-[1.3] font-semibold mb-4">
-                  {feature.title}
-                </h3>
-                <div className="mb-6 text-gray-600">
-                  <p className="mb-3">{feature.description_line1}</p>
-                  <p>{feature?.description_line2}</p>
-                </div>
-
-                {feature.hasButton && (
-                  <button
-                    className={`px-6 py-2  rounded-md shadow-md hover:shadow-lg transition-colors cursor-pointer 
-                      ${feature.buttonColor} ${feature.buttonTextColor} 
-                       `}
-                  >
-                    Show more
-                  </button>
-                )}
-              </div>
-            </div>
+            <FeatureItem key={feature.id} feature={feature} index={index} />
           ))}
         </div>
 
         {/* CTA Button at the bottom */}
-        <div className="mt-22 flex justify-center">
+        <motion.div 
+          ref={ctaRef}
+          initial={{ opacity: 0, y: 30 }}
+          animate={ctaInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ 
+            duration: 0.8, 
+            ease: "easeOut",
+            delay: 0.2
+          }}
+          className="mt-22 flex justify-center"
+        >
           <GetAppPrimaryButton bgColor="bg-indigo-400" hoverBgColor="bg-indigo-500" />
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 };
 
-export default Features;
+export default Features; 
