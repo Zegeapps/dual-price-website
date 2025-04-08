@@ -69,15 +69,15 @@ export default function Hero() {
                 <motion.span
                   className="text-orange-600 font-semibold"
                   initial={{ opacity: 0.9, scale: 0.98 }}
-                  animate={{ 
-                    opacity: 1, 
+                  animate={{
+                    opacity: 1,
                     scale: 1,
                     transition: {
                       duration: 1.5,
                       repeat: Infinity,
                       repeatType: "reverse",
-                      ease: "easeInOut"
-                    }
+                      ease: "easeInOut",
+                    },
                   }}
                 >
                   {" "}
@@ -89,22 +89,22 @@ export default function Hero() {
               </p>
             </motion.header>
 
-            <motion.p 
+            <motion.p
               className="text-gray-600 text-lg text-center md:text-left"
               variants={item}
             >
               Instant dual pricing display throughout your store eliminates the{" "}
-              <motion.span 
+              <motion.span
                 className="font-semibold text-neutral-900"
                 initial={{ opacity: 0.8 }}
-                animate={{ 
+                animate={{
                   opacity: [0.8, 1, 0.8],
-                  scale: [1, 1.05, 1], 
-                  transition: { 
-                    duration: 2.5, 
+                  scale: [1, 1.05, 1],
+                  transition: {
+                    duration: 2.5,
                     repeat: Infinity,
-                    repeatType: "reverse"
-                  }
+                    repeatType: "reverse",
+                  },
                 }}
               >
                 #1
@@ -112,7 +112,7 @@ export default function Hero() {
               reason international customers abandon carts.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className="flex justify-center md:justify-start"
               variants={item}
             >
@@ -120,23 +120,26 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <GetAppPrimaryButton bgColor="bg-orange-600" />
+                <GetAppPrimaryButton
+                  bgColor="bg-orange-600"
+                  hoverBgColor="bg-orange-500"
+                />
               </motion.div>
             </motion.div>
           </motion.div>
 
           {/* Image Section with animation */}
-          <motion.div 
+          <motion.div
             className="md:w-2/5 flex justify-center relative"
             initial={{ opacity: 0, x: 20 }}
-            animate={{ 
-              opacity: 1, 
+            animate={{
+              opacity: 1,
               x: 0,
               transition: {
                 duration: 0.8,
                 ease: "easeOut",
-                delay: 0.5
-              }
+                delay: 0.5,
+              },
             }}
           >
             {/* Animated background accent */}
@@ -149,11 +152,11 @@ export default function Hero() {
                   duration: 8,
                   repeat: Infinity,
                   repeatType: "reverse",
-                  ease: "easeInOut"
-                }
+                  ease: "easeInOut",
+                },
               }}
             />
-            
+
             <motion.div animate={floatingAnimation}>
               <Image
                 src={HERO_IMAGE.src}

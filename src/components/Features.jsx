@@ -5,6 +5,7 @@ import GetAppPrimaryButton from "./common/GetAppPrimaryButton";
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useRouter } from "next/navigation"; // Import the router
 
 /**
  * Features data structure for better maintainability
@@ -24,6 +25,7 @@ const FEATURES = [
     hasButton: true,
     buttonColor: "bg-[#FB7C33]",
     buttonTextColor: "text-white",
+    buttonLink: "/dualPrice"
   },
   {
     id: "tax-rules",
@@ -38,6 +40,7 @@ const FEATURES = [
     hasButton: true,
     buttonColor: "bg-[#E0E7DF]",
     buttonTextColor: "text-black text-opacity-90",
+    buttonLink: "/taxRule"
   },
   {
     id: "translation",
@@ -52,6 +55,7 @@ const FEATURES = [
     hasButton: true,
     buttonColor: "bg-[#FCC737]",
     buttonTextColor: "text-black text-opacity-80",
+    buttonLink: "/translation"
   },
   {
     id: "support",
@@ -116,9 +120,17 @@ const contentVariants = {
 
 // Component for each feature item with animations
 const FeatureItem = ({ feature, index }) => {
+  const router = useRouter(); // Initialize router
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
   const isEven = index % 2 === 0;
+
+  // Handle the button click for redirection
+  const handleButtonClick = () => {
+    if (feature.buttonLink) {
+      router.push(feature.buttonLink);
+    }
+  };
 
   return (
     <motion.div
@@ -166,6 +178,7 @@ const FeatureItem = ({ feature, index }) => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={handleButtonClick} // Add onClick handler
             className={`px-6 py-2 rounded-md shadow-md hover:shadow-lg transition-colors cursor-pointer 
               ${feature.buttonColor} ${feature.buttonTextColor} 
               `}
@@ -226,4 +239,4 @@ const Features = () => {
   );
 };
 
-export default Features; 
+export default Features;
