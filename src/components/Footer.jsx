@@ -103,9 +103,12 @@ const Footer = () => {
     { icon: Twitter, href: "https://www.twitter.com", label: "Twitter" },
   ];
 
+  // Get current year for copyright
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer
-      className="bg-cover bg-center py-8 md:py-12 text-white relative overflow-hidden"
+      className="bg-cover bg-center py-8 md:py-10 text-white relative overflow-hidden"
       style={{
         backgroundImage: `url("https://raw.githubusercontent.com/Zegeapps/zege-assets/c2ef49133201e8337580f126383ed3f3a7dd1729/Dual%20Price%20Website%20assets/footer.svg")`,
         backgroundColor: "#FF6B35", // Fallback color matching the image
@@ -161,8 +164,8 @@ const Footer = () => {
           </div>
 
           {/* Right column - Contact info */}
-          <motion.div 
-            variants={contactVariants} 
+          <motion.div
+            variants={contactVariants}
             className="flex justify-center md:justify-end"
           >
             <div className="flex gap-4 md:gap-10 items-start text-base sm:text-lg md:text-xl font-medium">
@@ -170,9 +173,24 @@ const Footer = () => {
                 className="flex flex-col gap-3 md:gap-4"
                 variants={textVariants}
               >
-                <motion.p variants={textVariants} className="text-sm sm:text-base md:text-lg">Email : </motion.p>
-                <motion.p variants={textVariants} className="text-sm sm:text-base md:text-lg">WhatsApp : </motion.p>
-                <motion.p variants={textVariants} className="text-sm sm:text-base md:text-lg">Social Links : </motion.p>
+                <motion.p
+                  variants={textVariants}
+                  className="text-sm sm:text-base md:text-lg"
+                >
+                  Email :{" "}
+                </motion.p>
+                <motion.p
+                  variants={textVariants}
+                  className="text-sm sm:text-base md:text-lg"
+                >
+                  WhatsApp :{" "}
+                </motion.p>
+                <motion.p
+                  variants={textVariants}
+                  className="text-sm sm:text-base md:text-lg"
+                >
+                  Social Links :{" "}
+                </motion.p>
               </motion.div>
               <div className="flex flex-col gap-3 md:gap-4">
                 <motion.div variants={textVariants}>
@@ -197,10 +215,10 @@ const Footer = () => {
                       key={platform.label}
                       custom={index}
                       variants={socialIconVariants}
-                      whileHover={{ 
-                        scale: 1.2, 
+                      whileHover={{
+                        scale: 1.2,
                         rotate: [0, -10, 10, -5, 0],
-                        transition: { duration: 0.3 } 
+                        transition: { duration: 0.3 },
                       }}
                     >
                       <Link
@@ -209,7 +227,10 @@ const Footer = () => {
                         className="hover:opacity-75 transition-all duration-200"
                         aria-label={platform.label}
                       >
-                        <platform.icon size={20} className="sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                        <platform.icon
+                          size={20}
+                          className="sm:w-5 sm:h-5 md:w-6 md:h-6"
+                        />
                       </Link>
                     </motion.div>
                   ))}
@@ -218,6 +239,32 @@ const Footer = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Copyright and Privacy Policy Section - Added as a new row */}
+        <motion.div 
+          className="mt-8 pt-4 border-t border-white/20 flex flex-col md:flex-row justify-between items-center text-sm text-white/80"
+          variants={textVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <div className="mb-3 md:mb-0">
+            © {currentYear} Zege Apps. All Rights Reserved.
+          </div>
+          <div className="flex gap-2" >
+            <Link 
+              href="/privacy-policy" 
+              className="hover:text-white hover:underline transition-all duration-200"
+            >
+              Privacy Policy
+            </Link> |
+            <Link 
+              href="/unsubscribe" 
+              className="hover:text-white hover:underline transition-all duration-200"
+            >
+              Unsubscribe
+            </Link>
+          </div>
+        </motion.div>
       </motion.div>
     </footer>
   );
