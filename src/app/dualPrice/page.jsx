@@ -78,7 +78,7 @@ export default function DualPrice() {
             </p>
 
             <p className="text-lg mb-6">
-              Our <span className="font-semibold">VAT: Dual Pricing PRO</span> app
+              Our <span className="font-semibold">VAT: Dual Price PRO</span> app
               solves this challenge with a simple yet powerful approach—displaying
               both tax-inclusive and tax-exclusive prices throughout your entire
               Shopify store. Our app ensures a consistent experience everywhere,
@@ -114,7 +114,7 @@ export default function DualPrice() {
             <p className="text-lg mb-12">
               If you're serious about growing your global customer base, you can't
               afford to overlook proper VAT display. Install{" "}
-              <span className="font-semibold">VAT: Dual Pricing PRO</span> today and join
+              <span className="font-semibold">VAT: Dual Price PRO</span> today and join
               the growing community of Shopify merchants who know that clear
               pricing leads to confident customers—and higher conversion rates.
             </p>

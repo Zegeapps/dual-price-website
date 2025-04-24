@@ -28,7 +28,7 @@ const featuresData = [
                 <li>Compatible with all major Shopify themes</li>
             </ul>
             
-            <p>No more customer confusion about whether taxes are included or not. With VAT: Dual Pricing PRO, you can satisfy the expectations of both B2B and B2C customers with a single, elegant solution.</p>
+            <p>No more customer confusion about whether taxes are included or not. With VAT: Dual Price PRO, you can satisfy the expectations of both B2B and B2C customers with a single, elegant solution.</p>
         `,
     image: "https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/display-prices.svg",
     altText: "VAT Inclusive & Exclusive Prices Feature",
@@ -117,7 +117,7 @@ const featuresData = [
                 <li>Peace of mind knowing your tax display is properly implemented</li>
             </ul>
             
-            <p>With our setup support, you can start enjoying the benefits of VAT: Dual Pricing PRO without having to worry about the technical details of implementation.</p>
+            <p>With our setup support, you can start enjoying the benefits of VAT: Dual Price PRO without having to worry about the technical details of implementation.</p>
         `,
     image: "https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/support.svg",
     altText: "Setup Support Feature",

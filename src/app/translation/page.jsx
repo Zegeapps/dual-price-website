@@ -53,7 +53,7 @@ export default function TranslateTaxLabels() {
     {
       title: "Access the Translation Feature",
       details:
-        'Log in to your Shopify admin dashboard, navigate to the VAT Dual Pricing PRO app, click on the "Translation" tab in the app\'s navigation menu.',
+        'Log in to your Shopify admin dashboard, navigate to the VAT Dual Price PRO app, click on the "Translation" tab in the app\'s navigation menu.',
     },
     {
       title: "Add a New Language",
@@ -114,7 +114,7 @@ export default function TranslateTaxLabels() {
                 your international shoppers.
               </p>
               <p className="text-lg leading-[1.9]">
-                <span className="font-semibold">VAT Dual Pricing PRO</span>{" "}
+                <span className="font-semibold">VAT Dual Price PRO</span>{" "}
                 stands out by offering a unique Tax Label Translation feature
                 that allows you to display these tax labels in your customers'
                 native languages. This guide will walk you through the simple
@@ -156,7 +156,7 @@ export default function TranslateTaxLabels() {
             {/* Advantage Section */}
             <div className="flex flex-col space-y-4">
               <h2 className="text-2xl font-bold">
-                The VAT Dual Pricing PRO Advantage
+                The VAT Dual Price PRO Advantage
               </h2>
               <div className="flex flex-col space-y-4">
                 <p className="text-lg leading-[1.9]">
@@ -187,7 +187,7 @@ export default function TranslateTaxLabels() {
               </h2>
               <div className="flex flex-col space-y-6">
                 <p className="text-lg leading-[1.9]">
-                  Setting up translated tax labels with VAT Dual Pricing PRO
+                  Setting up translated tax labels with VAT Dual Price PRO
                   takes less than a minute. Here's how:
                 </p>
                 <div className="grid gap-6">
@@ -293,7 +293,7 @@ export default function TranslateTaxLabels() {
               <p className="text-lg leading-[1.9]">
                 Don't let language barriers prevent your international customers
                 from understanding your pricing. Install{" "}
-                <span className="font-semibold">VAT Dual Pricing PRO</span>{" "}
+                <span className="font-semibold">VAT Dual Price PRO</span>{" "}
                 today and take advantage of our unique Tax Label Translation
                 feature to create a truly global shopping experience.
               </p>

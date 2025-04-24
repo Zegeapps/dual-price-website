@@ -8,7 +8,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "VAT: Dual Pricing PRO",
+  title: "VAT: Dual Price PRO",
   description: "Shopify app for display VAT prices on store",
 };
 

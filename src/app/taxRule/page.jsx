@@ -73,7 +73,7 @@ export default function AdvancedTaxRules() {
               </h2>
               <div className="flex flex-col space-y-4">
                 <p className="text-lg sm:text-lg leading-[1.9] sm:leading-[1.7]">
-                  Our <span className="font-semibold">VAT: Dual Pricing PRO</span> app includes a powerful Advanced Tax Rules feature designed to solve these challenges. This functionality gives you complete control over how taxes are calculated and displayed across your entire Shopify store.
+                  Our <span className="font-semibold">VAT: Dual Price PRO</span> app includes a powerful Advanced Tax Rules feature designed to solve these challenges. This functionality gives you complete control over how taxes are calculated and displayed across your entire Shopify store.
                 </p>
                 <p className="text-lg sm:text-lg leading-[1.9] sm:leading-[1.7]">
                   With our advanced tax rule engine, you can configure precise tax rates based on:
@@ -136,7 +136,7 @@ export default function AdvancedTaxRules() {
             {/* Conclusion Section */}
             <div className="flex flex-col space-y-4">
               <p className="text-lg sm:text-lg leading-[1.9] sm:leading-[1.7]">
-                For Shopify merchants serious about international expansion, proper tax management is not optional—it's essential for both regulatory compliance and conversion optimization. Ready to optimize your global tax strategy? Install <span className="font-semibold">VAT: Dual Pricing PRO</span> today and take control of your international pricing display.
+                For Shopify merchants serious about international expansion, proper tax management is not optional—it's essential for both regulatory compliance and conversion optimization. Ready to optimize your global tax strategy? Install <span className="font-semibold">VAT: Dual Price PRO</span> today and take control of your international pricing display.
               </p>
             </div>
           </div>

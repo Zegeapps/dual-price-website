@@ -5,6 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
+const demo_store_url =
+  "https://zege-store.myshopify.com/?_bt=eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaDE2WldkbExYTjBiM0psTG0xNWMyaHZjR2xtZVM1amIyMEdPZ1pGVkE9PSIsImV4cCI6IjIwMjUtMDQtMjRUMDk6MTc6MjcuODUyWiIsInB1ciI6InBlcm1hbmVudF9wYXNzd29yZF9ieXBhc3MifX0%3D--aa1138533604f24cdafce7a75c3102e7bf87ef59&_cd=b89763ef264268b3ad915be8103d6b511986d3fba523f2cb919c0ca9d98bc6a2&_uid=116690714994&preview_theme_id=174709539186&preview_token=9fisrdcop6mkptmmnbmhvb6jnblimt5g";
+
 /**
  * Custom animation keyframes for the compact navbar glitch effect
  * This creates a digital glitch effect with opacity transitions
@@ -61,7 +64,7 @@ const glitchAnimationStyles = `
 // Constants for better maintainability
 const LOGO_IMAGE = {
   src: "https://raw.githubusercontent.com/Zegeapps/zege-assets/c95641e582b0bd0d191b26c543839e20c211b42c/public/logo-navbar.svg",
-  alt: "VAT Dual Pricing PRO Logo",
+  alt: "VAT Dual Price PRO Logo",
   width: 36,
   height: 36,
 };
@@ -87,7 +90,7 @@ const Navbar = () => {
   const handleResize = useCallback(() => {
     const newIsMobile = window.innerWidth < MOBILE_BREAKPOINT;
     setIsMobile(newIsMobile);
-    
+
     // Auto-close mobile menu when resizing to desktop
     if (!newIsMobile && isMenuOpen) {
       setIsMenuOpen(false);
@@ -103,7 +106,7 @@ const Navbar = () => {
     // Add event listeners with passive option for better performance
     window.addEventListener("scroll", handleScroll, { passive: true });
     window.addEventListener("resize", handleResize, { passive: true });
-    
+
     // Clean up event listeners on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -113,7 +116,7 @@ const Navbar = () => {
 
   // Toggle mobile menu
   const toggleMenu = useCallback(() => {
-    setIsMenuOpen(prevState => !prevState);
+    setIsMenuOpen((prevState) => !prevState);
   }, []);
 
   // Smooth scrolling function with memoization
@@ -136,15 +139,18 @@ const Navbar = () => {
     return (
       <>
         {/* Inject the glitch animation styles */}
-        <style jsx global>{glitchAnimationStyles}</style>
-        
+        <style jsx global>
+          {glitchAnimationStyles}
+        </style>
         <div className="h-12" aria-hidden="true" /> {/* Spacer for content */}
         <div className="fixed top-3 left-0 right-0 z-50 flex justify-center">
           <nav className="glitch-fade-in flex items-center bg-white rounded-full shadow-md py-2 pl-4 pr-2 w-auto max-w-fit mx-auto border border-gray-200">
-            <span className="text-sm font-semibold whitespace-nowrap">VAT: Dual Pricing PRO</span>
+            <span className="text-sm font-semibold whitespace-nowrap">
+              VAT: Dual Price PRO
+            </span>
             <div className="flex items-center ml-6">
-              {navItems.map(item => (
-                <button 
+              {navItems.map((item) => (
+                <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className="text-sm font-medium text-neutral-700 hover:text-orange-500 px-4"
@@ -152,12 +158,14 @@ const Navbar = () => {
                   {item.label}
                 </button>
               ))}
-              <button 
-                onClick={() => scrollToSection("footer")}
+              <a
+                href={demo_store_url}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="ml-1 px-5 py-2 bg-black text-white text-sm font-medium rounded-full hover:bg-neutral-800 transition-colors m-0.5"
               >
-                Contact
-              </button>
+                Demo store
+              </a>
             </div>
           </nav>
         </div>
@@ -181,14 +189,14 @@ const Navbar = () => {
                 priority
               />
               <h3 className="text-base font-semibold text-neutral-900 hidden sm:block whitespace-nowrap">
-                VAT: Dual Pricing PRO
+                VAT: Dual Price PRO
               </h3>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.map(item => (
+            {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -197,12 +205,14 @@ const Navbar = () => {
                 {item.label}
               </button>
             ))}
-            <button
-              onClick={() => scrollToSection("footer")}
+            <a
+              href={demo_store_url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-1.5 bg-black text-white rounded-lg hover:bg-neutral-800 transition-colors cursor-pointer"
             >
-              Contact us
-            </button>
+              Demo Store
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -213,23 +223,29 @@ const Navbar = () => {
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </nav>
 
         {/* Mobile Menu with conditional rendering */}
-        <div 
+        <div
           className={`
             md:hidden bg-white mt-2 py-2 px-4 rounded-lg shadow-lg
             transition-all duration-300 ease-in-out origin-top
-            ${isMenuOpen 
-              ? "opacity-100 max-h-60 visible" 
-              : "opacity-0 max-h-0 invisible overflow-hidden"}
+            ${
+              isMenuOpen
+                ? "opacity-100 max-h-60 visible"
+                : "opacity-0 max-h-0 invisible overflow-hidden"
+            }
           `}
         >
           <div className="flex flex-col space-y-4 pb-4">
-            {navItems.map(item => (
+            {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
@@ -240,12 +256,14 @@ const Navbar = () => {
             ))}
           </div>
           <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200">
-            <button
-              onClick={() => scrollToSection("footer")}
+            <a
+              href={demo_store_url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-4 py-1.5 bg-black text-white rounded-full hover:bg-neutral-800 transition-colors text-center cursor-pointer"
             >
-              Contact us
-            </button>
+              Demo Store
+            </a>
           </div>
         </div>
       </div>

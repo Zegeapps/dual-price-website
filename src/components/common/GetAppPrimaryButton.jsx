@@ -4,6 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
+const app_url = "https://apps.shopify.com/vat-dual-pricing-pro"
+
 const GetAppPrimaryButton = ({
   bgColor = "bg-orange-500",
   hoverBgColor = "hover:bg-orange-500",
@@ -15,7 +17,8 @@ const GetAppPrimaryButton = ({
   
   return (
     <Link
-      href="/contact"
+      href={app_url}
+      target="_blank"
       className={`flex items-center ${bgColor} ${textColor} ${hoverBgColor} text-lg font-semibold px-6 py-3 rounded-lg transition shadow-lg hover:shadow-xl ${className}`}
       style={{ boxShadow: `0 4px 14px ${shadowColor}` }}
       onMouseEnter={() => setIsHovered(true)}

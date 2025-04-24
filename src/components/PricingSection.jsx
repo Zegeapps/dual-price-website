@@ -7,6 +7,8 @@ import { motion, useInView } from "framer-motion";
 export default function Pricing() {
   // Reference to the pricing section
   const pricingSectionRef = useRef(null);
+
+  const app_url = "https://apps.shopify.com/vat-dual-pricing-pro"
   
   // Check if the section is in view
   const isInView = useInView(pricingSectionRef, {
@@ -127,7 +129,8 @@ export default function Pricing() {
                   whileTap={{ scale: 0.97 }}
                 >
                   <Link
-                    href="https://apps.shopify.com"
+                    href={app_url}
+                    target="_blank"
                     className="flex items-center justify-center w-full bg-neutral-900 text-white font-medium py-3 px-4 rounded mb-3 hover:bg-neutral-800 transition"
                   >
                     <span>Install App</span>
