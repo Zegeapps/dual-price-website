@@ -1,4 +1,5 @@
 import { Poppins } from "next/font/google";
+import Script from "next/script"; // ✅ import Script
 import "./globals.css";
 
 const poppins = Poppins({
@@ -15,8 +16,23 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-       <body className={`${poppins.variable} antialiased`}>
-      {children}
+      <head>
+        {/* ✅ Google Analytics Tag (using Next.js Script) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-42DCNQHTN5"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-42DCNQHTN5');
+          `}
+        </Script>
+      </head>
+      <body className={`${poppins.variable} antialiased`}>
+        {children}
       </body>
     </html>
   );
