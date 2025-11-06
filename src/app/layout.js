@@ -1,5 +1,5 @@
 import { Poppins } from "next/font/google";
-import Script from "next/script"; // ✅ import Script
+import Script from "next/script";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -9,7 +9,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-  title: "VAT: Dual Price PRO",
+  title: "VAT: Dual Pricing PRO",
   description: "Shopify app for display VAT prices on store",
 };
 
@@ -17,10 +17,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        {/* ✅ Google Analytics Tag (using Next.js Script) */}
+        {/* ✅ Load Google Analytics safely using next/script */}
         <Script
-          strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-42DCNQHTN5"
+          strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
@@ -30,16 +30,6 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-42DCNQHTN5');
           `}
         </Script>
-
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-077S667MP8"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments)}
-          gtag('js', new Date());
-
-          gtag('config', 'G-42DCNQHTN5'); 
-        </script>
-
       </head>
       <body className={`${poppins.variable} antialiased`}>
         {children}
