@@ -30,6 +30,16 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-42DCNQHTN5');
           `}
         </Script>
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-077S667MP8"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments)}
+          gtag('js', new Date());
+
+          gtag('config', 'G-42DCNQHTN5'); 
+        </script>
+
       </head>
       <body className={`${poppins.variable} antialiased`}>
         {children}
